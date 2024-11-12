@@ -7,10 +7,11 @@ SCRIPT_DIR="$(dirname "$0")"
 # Define the deployment directory (assuming it's in the same directory as the script)
 DEPLOY_DIR="$SCRIPT_DIR/deploymentdirectory"
 
-# Ensure the directory exists
+# Ensure the deployment directory exists
 mkdir -p "$DEPLOY_DIR"
 
-# Copy all files from the current directory to the deployment directory
-cp -r "$SCRIPT_DIR"/* "$DEPLOY_DIR"
+# Copy all files from the current directory to the deployment directory, 
+# excluding the deployment directory itself
+find "$SCRIPT_DIR" -mindepth 1 -maxdepth 1 ! -name "deploymentdirectory" -exec cp -r {} "$DEPLOY_DIR" \;
 
 echo "Deployment complete!"
