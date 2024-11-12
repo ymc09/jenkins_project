@@ -24,7 +24,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    sh "source ${VIRTUAL_ENV}/bin/activate && pytest --junitxml=test-results.xml"
+                    sh "source ${VIRTUAL_ENV}/bin/activate && pytest"
                 }
             }
         }
