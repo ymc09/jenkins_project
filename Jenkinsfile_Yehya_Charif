@@ -46,8 +46,8 @@ pipeline {
         stage('Security Scan') {
             steps {
                 script {
-                    // Configure Bandit to allow asserts in the test code only
-                    sh "source ${VIRTUAL_ENV}/bin/activate && bandit -r ."
+                    // Exclude the 'venv' directory from the bandit scan
+                    sh "source ${VIRTUAL_ENV}/bin/activate && bandit -r . -x ${VIRTUAL_ENV}"
                 }
             }
         }
