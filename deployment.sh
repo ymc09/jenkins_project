@@ -5,7 +5,7 @@
 SCRIPT_DIR="$(dirname "$0")"
 
 # Define the deployment directory (assuming it's in the same directory as the script)
-DEPLOY_DIR="$SCRIPT_DIR/deployment_directory"
+DEPLOY_DIR="$SCRIPT_DIR/deploymentdirectory"
 
 # Ensure the directory exists
 mkdir -p "$DEPLOY_DIR"
